@@ -21,7 +21,13 @@ browser, only dounble tap and zooming controls.
   // This is a basic map created using Leftlet Quick Start Guide.
   // http://leafletjs.com/examples/quick-start.html
   var grodnoCityCenter = [53.678, 23.83];
-  var map = L.map('bus-stops-map').setView(grodnoCityCenter, 13);
+  var map = L.map('bus-stops-map', {
+    // Disable automatic insertion of an attribution control, so we could put
+    // it on the map manully without prefix.
+    attributionControl: false
+  })
+
+  map.setView(grodnoCityCenter, 13);
 
   // For Mapbox API used here, look at documentation for Static (Classic).
   // https://www.mapbox.com/api-documentation/#static-classic
@@ -44,4 +50,8 @@ browser, only dounble tap and zooming controls.
   }).addTo(map);
 
   L.control.scale().addTo(map);
+
+  // Remove default 'Leftlet' prefix, so attribution control does not overlap
+  // with scale contol on small screens.
+  L.control.attribution({ prefix: '' }).addTo(map);
 </script>
