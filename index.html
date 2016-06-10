@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+<div id="bus-stops-map"></div>
+<style>
+  #bus-stops-map { height: 100%; }
+</style>
+<script>
+  // This is a basic map created using Leftlet Quick Start Guide.
+  // http://leafletjs.com/examples/quick-start.html
+  var grodnoCityCenter = [53.678, 23.83];
+  var map = L.map('bus-stops-map').setView(grodnoCityCenter, 13);
+
+  // For Mapbox API used here, look at documentation for Static (Classic).
+  // https://www.mapbox.com/api-documentation/#static-classic
+  var tileTemplate = 'https://api.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}';
+
+  L.tileLayer(tileTemplate, {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox.streets',
+
+    // Default Public Token copied from Mapbox Account page.
+    // https://www.mapbox.com/studio/account/tokens/
+    accessToken: 'pk.eyJ1IjoiaXJuYyIsImEiOiJjaXA5cnc1MWswMDJ1eGZtN3J4ejFmaHozIn0.TqyoDJcUjuuv3wro3H0Byw'
+  }).addTo(map);
+</script>
