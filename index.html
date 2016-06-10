@@ -29,24 +29,15 @@ browser, only dounble tap and zooming controls.
 
   map.setView(grodnoCityCenter, 13);
 
-  // For Mapbox API used here, look at documentation for Static (Classic).
-  // https://www.mapbox.com/api-documentation/#static-classic
-  var tileTemplate = 'https://api.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}';
+  var tileTemplate = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 
   L.tileLayer(tileTemplate, {
     attribution: [
       // Attribution requirements implemented as stated at June 10, 2016.
       // http://www.openstreetmap.org/copyright
-      '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      // https://www.mapbox.com/help/attribution/
-      '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a>'
+      '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     ].join(', '),
-    maxZoom: 18,
-    id: 'mapbox.streets',
-
-    // Default Public Token copied from Mapbox Account page.
-    // https://www.mapbox.com/studio/account/tokens/
-    accessToken: 'pk.eyJ1IjoiaXJuYyIsImEiOiJjaXA5cnc1MWswMDJ1eGZtN3J4ejFmaHozIn0.TqyoDJcUjuuv3wro3H0Byw'
+    maxZoom: 18
   }).addTo(map);
 
   L.control.scale().addTo(map);
