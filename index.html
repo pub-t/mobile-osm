@@ -1,8 +1,14 @@
 <!--
 Define viewport, so initial rendering and zoom is right on mobile.
 https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag
+
+`user-scalable=no` is needed to prevent HTML document-level pinch to zoom, as
+this enlarges controls and makes map unusable.
+
+Unfortunatelly Leaflet does not provide pinch to zoom feature on old Andoid 2.3
+browser, only dounble tap and zooming controls.
 -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
 <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
 <div id="bus-stops-map"></div>
